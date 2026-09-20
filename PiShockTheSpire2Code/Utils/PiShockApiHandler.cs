@@ -9,7 +9,7 @@ public static class PiShockApiHandler
 {
     private static readonly HttpClient _client = new HttpClient();
     private static List<string> _shockersId = new List<string>();
-    
+
     public static Task GenerateShockerOpsAsync(int operation, int duration, int intensity)
     {
         if (VerifyPiShockConfigData())
@@ -21,7 +21,8 @@ public static class PiShockApiHandler
 
             foreach (var shockerId in _shockersId)
             {
-                if (shockerId != ""){
+                if (shockerId != "")
+                {
                     MainFile.Logger.Info("Getting ready to call Shocker with ID: " + shockerId);
                     _ = ShockerOpsAsync(operation, duration, intensity, shockerId);
                 }
@@ -68,7 +69,7 @@ public static class PiShockApiHandler
             MainFile.Logger.Warn("API Request Error! " + ex.Message);
         }
     }
-    
+
     private static bool VerifyPiShockConfigData()
     {
         if (Config.Username == "")
@@ -77,30 +78,35 @@ public static class PiShockApiHandler
             MainFile.Logger.Warn("Please adjust the PiShockTheSpire2 Configuration menu properly.");
             return false;
         }
+
         if (Config.API_Key == "undefined" || Config.API_Key == "")
         {
             MainFile.Logger.Warn("(Settings Configuration Error) API Key is undefined!");
             MainFile.Logger.Warn("Please adjust the PiShockTheSpire2 Configuration menu properly.");
             return false;
         }
+
         GenerateShockersIdList();
         if (_shockersId.Count == 0)
         {
             MainFile.Logger.Warn("(Settings Configuration Error) All Shocker IDs are undefined!");
             return false;
         }
+
         if (Config.MaxIntensity < Config.MinIntensity)
         {
             MainFile.Logger.Warn("(Settings Configuration Error) The Maximum Intensity of your shocker can't be less than its Minimum Intensity!");
             MainFile.Logger.Warn("Please adjust the PiShockTheSpire2 Configuration menu properly.");
             return false;
         }
+
         if (Config.MaxDuration < Config.MinDuration)
         {
             MainFile.Logger.Warn("(Settings Configuration Error) The Maximum Duration of your shocker can't be less than its Minimum Duration!");
             MainFile.Logger.Warn("Please adjust the PiShockTheSpire2 Configuration menu properly.");
             return false;
         }
+
         return true;
     }
 
@@ -135,11 +141,9 @@ public static class PiShockApiHandler
 
     private static int RefineIntensity(int intensity)
     {
-        if(intensity < (int)Config.MinIntensity) return (int)Config.MinIntensity;
+        if (intensity < (int)Config.MinIntensity) return (int)Config.MinIntensity;
         if (intensity > (int)Config.MaxIntensity) return (int)Config.MaxIntensity;
-        
+
         return intensity;
     }
-    
-
 }

@@ -11,18 +11,18 @@ using PiShockTheSpire2.PiShockTheSpire2Code.Powers;
 using PiShockTheSpire2.PiShockTheSpire2Code.Utils;
 
 namespace PiShockTheSpire2.PiShockTheSpire2Code.Cards;
-  
+
 [Pool(typeof(TokenCardPool))]
 public class Safeword() : CustomCardModel(0, CardType.Skill,
     CardRarity.Token, TargetType.Self)
 {
     public override string CustomPortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigCardImagePath();
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-    
+
     public override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Insulation>(1m)];
     public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<Insulation>()];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
-    
+
     /*
      * Apply<T>(
       PlayerChoiceContext choiceContext,
@@ -31,19 +31,19 @@ public class Safeword() : CustomCardModel(0, CardType.Skill,
       Creature? applier,
       CardModel? cardSource,
       bool silent = false)
-     * 
+     *
      */
     public override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<Insulation>(choiceContext, base.Owner.Creature, base.DynamicVars["Insulation"].BaseValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<Insulation>(choiceContext, base.Owner.Creature, base.DynamicVars["Insulation"].BaseValue,
+            base.Owner.Creature, this);
     }
 
     public override void OnUpgrade()
     {
         base.DynamicVars["Insulation"].UpgradeValueBy(1m);
     }
-    
 }

@@ -1,8 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-
 using Godot;
-
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -20,14 +18,13 @@ using PiShockTheSpire2.PiShockTheSpire2Code.Utils;
 
 namespace PiShockTheSpire2.PiShockTheSpire2Code.Potions;
 
-
 [Pool(typeof(SharedPotionPool))]
 public class LiquidLatexPotion : CustomPotionModel
 {
     public override PotionRarity Rarity => PotionRarity.Rare;
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
-    
+
     public override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Insulation>(1m)];
     public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<Insulation>()];
 
@@ -39,5 +36,4 @@ public class LiquidLatexPotion : CustomPotionModel
         NCombatRoom.Instance?.PlaySplashVfx(target, new Color("222220"));
         await PowerCmd.Apply<Insulation>(choiceContext, target, base.DynamicVars["Insulation"].BaseValue, base.Owner.Creature, null);
     }
-    
 }
