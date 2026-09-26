@@ -25,12 +25,12 @@ public class LiquidLatexPotion : CustomPotionModel
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
 
-    public override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Insulation>(1m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Insulation>(1m)];
     public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<Insulation>()];
 
     public override string? CustomPackedImagePath => "liquid_latex.png".PotionImagePath();
 
-    public override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
+    protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
         PotionModel.AssertValidForTargetedPotion(target);
         NCombatRoom.Instance?.PlaySplashVfx(target, new Color("222220"));

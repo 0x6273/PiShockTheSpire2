@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "PiShockTheSpire2",
   "name": "PiShockTheSpire2",
   "author": "Yahlunna",
@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "id": "BaseLib",
-      "min_version": "3.3.0"
+      "min_version": "3.4.7"
     }
   ],
   "affects_gameplay": true
