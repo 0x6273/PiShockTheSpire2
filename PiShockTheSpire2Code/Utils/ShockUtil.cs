@@ -11,6 +11,9 @@ public static class ShockUtil
         {
             op = Op.Buzz;
         }
+        
+        intensity = RefineIntensity(intensity);
+        duration  = RefineDuration(duration);
 
         IShockBackend backend;
         try
@@ -52,6 +55,24 @@ public static class ShockUtil
             64 => new OpenShockApiHandler(), // OpenShock Token.
             _ => throw new Exception("Unable to determine backend from API key")
         };
+    }
+    
+    private static TimeSpan RefineDuration(TimeSpan duration)
+    {
+        if (duration < TimeSpan.FromSeconds(Config.MinDuration))
+            return TimeSpan.FromSeconds(Config.MinDuration);
+        if (duration > TimeSpan.FromSeconds(Config.MaxDuration))
+            return TimeSpan.FromSeconds(Config.MaxDuration);
+
+        return duration;
+    }
+
+    private static int RefineIntensity(int intensity)
+    {
+        if (intensity < (int)Config.MinIntensity) return (int)Config.MinIntensity;
+        if (intensity > (int)Config.MaxIntensity) return (int)Config.MaxIntensity;
+        
+        return intensity;
     }
 }
 
