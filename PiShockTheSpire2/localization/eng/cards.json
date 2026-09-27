@@ -2,6 +2,6 @@
   "PISHOCKTHESPIRE2-SAFEWORD.description": "Gain [blue]{Insulation:diff()}[/blue] [gold]Insulated[/gold].",
   "PISHOCKTHESPIRE2-SAFEWORD.title": "Safeword",
 
-  "PISHOCKTHESPIRE2-SHOCKLOOP.description": "Trigger ALL PiShock Collars {IfUpgraded:show:X+1|X} times at max power.",
+  "PISHOCKTHESPIRE2-SHOCKLOOP.description": "Trigger ALL Shock Collars {IfUpgraded:show:X+1|X} times at max power.",
   "PISHOCKTHESPIRE2-SHOCKLOOP.title": "Shockloop"
 }

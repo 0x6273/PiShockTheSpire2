@@ -1,10 +1,8 @@
 {
   "PISHOCKTHESPIRE2.mod_title": "PiShock The Spire 2",
   "PISHOCKTHESPIRE2-API_CONFIG.title": "API Configuration",
-  "PISHOCKTHESPIRE2-USERNAME.title": "Username",
-  "PISHOCKTHESPIRE2-USERNAME.hover.desc": "Your [gold]username[/gold] in the Pi-Shock Website.",
   "PISHOCKTHESPIRE2-A_P_I_KEY.title": "API Key",
-  "PISHOCKTHESPIRE2-A_P_I_KEY.hover.desc": "A PiShock [gold]API Key[/gold]. You can generate one in the PiShock website, in your Account settings.",
+  "PISHOCKTHESPIRE2-A_P_I_KEY.hover.desc": "A PiShock or OpenShock [gold]API Key[/gold]. You can generate one in the PiShock website, in your Account settings.",
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKERS.title": "Shocker IDs",
   "PISHOCKTHESPIRE2-SHOCKER_I_D.title": "Shocker ID",
   "PISHOCKTHESPIRE2-SHOCKER_I_D.hover.desc": "The Shocker ID that you want this mod to trigger. You can find it in your Shocker settings. This is NOT a Hub ID.",

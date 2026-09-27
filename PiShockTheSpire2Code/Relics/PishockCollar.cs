@@ -207,7 +207,6 @@ public class PishockCollar() : CustomRelicModel
 
             int midRangeDuration = (int)((Config.MaxDuration + Config.MinDuration) / 2);
             int midRangeIntensity = (int)((Config.MaxIntensity + Config.MinIntensity) / 2);
-            ;
 
             _ = TriggerVibrate(midRangeDuration, midRangeIntensity);
         }
@@ -215,52 +214,53 @@ public class PishockCollar() : CustomRelicModel
         return Task.CompletedTask;
     }
 
-    public async Task TriggerShock(int duration, int intensity)
+    public async Task TriggerShock(int durationS, int intensity)
     {
         if (LocalContext.IsMe(base.Owner))
         {
-            DebugDump(intensity, duration);
+            DebugDump(intensity, durationS);
 
             if (!base.Owner.Creature.HasPower<Insulation>() || Config.FaultyInsulation)
             {
                 if (Config.VerboseLogs)
                 {
-                    MainFile.Logger.Info("Attempting a shock with an intensity of " + intensity + " and a duration of " + duration + ".");
+                    MainFile.Logger.Info("Attempting a shock with an intensity of " + intensity + " and a duration of " + durationS + "s.");
                 }
 
                 Flash();
-                await PiShockApiHandler.GenerateShockerOpsAsync(0, duration, intensity);
+                await ShockUtil.DoOperationForAllAsync(Op.Zap, TimeSpan.FromSeconds(durationS), intensity);
             }
         }
     }
 
-    public async Task TriggerVibrate(int duration, int intensity)
+    public async Task TriggerVibrate(int durationS, int intensity)
     {
         if (LocalContext.IsMe(base.Owner))
         {
             if (Config.VerboseLogs)
             {
                 MainFile.Logger.Info("------------------------------------------------------------.");
-                MainFile.Logger.Info("Attempting a vibration with an intensity of " + intensity + " and a duration of " + duration + ".");
+                MainFile.Logger.Info("Attempting a vibration with an intensity of " + intensity + " and a duration of " + durationS + "s.");
             }
 
             Flash();
-            await PiShockApiHandler.GenerateShockerOpsAsync(1, duration, intensity);
+            //await PiShockApiHandler.GenerateShockerOpsAsync(1, duration, intensity);
+            await ShockUtil.DoOperationForAllAsync(Op.Buzz, TimeSpan.FromSeconds(durationS), intensity);
         }
     }
 
-    public async Task TriggerBeep(int duration)
+    public async Task TriggerBeep(int durationS)
     {
         if (LocalContext.IsMe(base.Owner))
         {
             if (Config.VerboseLogs)
             {
                 MainFile.Logger.Info("------------------------------------------------------------.");
-                MainFile.Logger.Info("Attempting a beep with a duration of " + duration + ".");
+                MainFile.Logger.Info("Attempting a beep with a duration of " + durationS + "s.");
             }
 
             Flash();
-            await PiShockApiHandler.GenerateShockerOpsAsync(2, duration, 0);
+            await ShockUtil.DoOperationForAllAsync(Op.Beep, TimeSpan.FromSeconds(durationS));
         }
     }
 
