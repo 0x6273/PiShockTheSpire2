@@ -12,7 +12,7 @@ public static class ShockUtil
             op = Op.Buzz;
         }
 
-        if (Config.IsValid())
+        if (!Config.IsValid())
         {
             return;
         }
