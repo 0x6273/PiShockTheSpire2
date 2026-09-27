@@ -11,6 +11,11 @@ public static class ShockUtil
         {
             op = Op.Buzz;
         }
+
+        if (Config.IsValid())
+        {
+            return;
+        }
         
         intensity = RefineIntensity(intensity);
         duration  = RefineDuration(duration);
