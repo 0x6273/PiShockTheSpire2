@@ -30,10 +30,10 @@ public class Config : SimpleModConfig
     [ConfigSlider(1, 100, Format = "{0} \u26a1")]
     public static double MaxIntensity { get; set; } = 100f;
 
-    [ConfigSlider(1, 9, Format = "{0}  s ")]
+    [ConfigSlider(0.3, 9, 0.1, Format = "{0}  s ")]
     public static double MinDuration { get; set; } = 1f;
 
-    [ConfigSlider(1, 15, Format = "{0}  s ")]
+    [ConfigSlider(0.3, 15, 0.1, Format = "{0}  s ")]
     public static double MaxDuration { get; set; } = 10f;
 
     public static bool AlwaysMaxPower { get; set; } = false;
