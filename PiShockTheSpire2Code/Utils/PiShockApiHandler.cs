@@ -21,13 +21,13 @@ public class PiShockApiHandler : IShockBackend
         foreach (var shockerId in shockerIds)
         {
             MainFile.Logger.Info("Getting ready to call Shocker with ID: " + shockerId);
-            await ShockerOpsAsync(operation, shockerId, duration, intensity);
+            _ = ShockerOpsAsync(operation, shockerId, duration, intensity);
         }
     }
     
     private static async Task ShockerOpsAsync(Op operation, string shockerId, TimeSpan duration, int intensity)
     {
-        var piShockUrl = $"https://api.pishock.com/Shockers/{shockerId}";
+        var piShockUrl = $"https://api.pishock.com/Shockers/OperateById/{shockerId}";
         
         var operationNum = operation switch
         {

@@ -56,7 +56,7 @@ public static class ShockUtil
         // Because PiShock and OpenShock API keys are different lengths, we can auto-detect which backend to use.
         return Config.API_Key.Length switch
         {
-            32 | 36 => new PiShockApiHandler(), // PiShock UUID, with or without the 4 dashes.
+            32 or 36 => new PiShockApiHandler(), // PiShock UUID, with or without the 4 dashes.
             64 => new OpenShockApiHandler(), // OpenShock Token.
             _ => throw new Exception("Unable to determine backend from API key")
         };
