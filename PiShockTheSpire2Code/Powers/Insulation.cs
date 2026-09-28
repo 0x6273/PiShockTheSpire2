@@ -14,7 +14,6 @@ namespace PiShockTheSpire2.PiShockTheSpire2Code.Powers;
 
 public class Insulation() : CustomPowerModel
 {
-    
     public override string CustomPackedIconPath => "mercy.png".PowerImagePath();
     public override string CustomBigIconPath => "mercy.png".BigPowerImagePath();
     public override PowerType Type => PowerType.Buff;
@@ -28,7 +27,4 @@ public class Insulation() : CustomPowerModel
             await PowerCmd.Decrement(this);
         }
     }
-    
-    
-    
 }

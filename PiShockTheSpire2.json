@@ -1,12 +1,17 @@
-{
+﻿{
   "id": "PiShockTheSpire2",
   "name": "PiShockTheSpire2",
   "author": "Yahlunna",
-  "description": "Unofficial PiShock integration with Slay the Spire 2.\n\nNavigate the mod settings to configure your shock collar.\n\nThis mod is at beta phase. If you want to give feedback or report a bug, contact @Yahlunna via Discord.",
+  "description": "Unofficial PiShock and OpenShock integration with Slay the Spire 2.\n\nNavigate the mod settings to configure your shock collar.\n\nThis mod is at beta phase. If you want to give feedback or report a bug, contact @Yahlunna via Discord.",
   "version": "v0.2.1",
   "min_game_version": "0.107.1",
   "has_pck": true,
   "has_dll": true,
-  "dependencies": [{"id": "BaseLib", "min_version": "3.3.0"}],
+  "dependencies": [
+    {
+      "id": "BaseLib",
+      "min_version": "3.4.7"
+    }
+  ],
   "affects_gameplay": true
 }

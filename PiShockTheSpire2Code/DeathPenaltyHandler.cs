@@ -14,21 +14,19 @@ using PiShockTheSpire2.PiShockTheSpire2Code.Utils;
 namespace PiShockTheSpire2.PiShockTheSpire2Code;
 
 [HarmonyPatch(typeof(RunManager), nameof(RunManager.OnEnded))]
-class DeathPenaltyHandler {
+class DeathPenaltyHandler
+{
     [HarmonyPostfix]
-    static void Postfix(bool isVictory) {
+    static void Postfix(bool isVictory)
+    {
         // TODO: avoid triggering multiple times during online play.
-            if (isVictory && Config.HealingVibrates)
-            {
-                _ = PiShockApiHandler.GenerateShockerOpsAsync(1, (int)Config.MaxDuration, (int)Config.MaxIntensity);
-            }
-            else if (!isVictory && Config.DeathPenalty)
-            {
-                _ = PiShockApiHandler.GenerateShockerOpsAsync(0, (int)Config.MaxDuration, (int)Config.MaxIntensity);
-            }
-        
+        if (isVictory && Config.HealingVibrates)
+        {
+            _ = ShockUtil.DoOperationForAllAsync(Op.Buzz, TimeSpan.FromSeconds(Config.MaxDuration), (int)Config.MaxIntensity);
+        }
+        else if (!isVictory && Config.DeathPenalty)
+        {
+            _ = ShockUtil.DoOperationForAllAsync(Op.Zap, TimeSpan.FromSeconds(Config.MaxDuration), (int)Config.MaxIntensity);
+        }
     }
 }
-
-
-

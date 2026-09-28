@@ -1,15 +1,9 @@
 {
   "PISHOCKTHESPIRE2.mod_title": "PiShock The Spire 2",
-
   "PISHOCKTHESPIRE2-API_CONFIG.title": "API Configuration",
-  
-  "PISHOCKTHESPIRE2-USERNAME.title": "Username",
-  "PISHOCKTHESPIRE2-USERNAME.hover.desc": "Your [gold]username[/gold] in the Pi-Shock Website.",
   "PISHOCKTHESPIRE2-A_P_I_KEY.title": "API Key",
-  "PISHOCKTHESPIRE2-A_P_I_KEY.hover.desc": "A PiShock [gold]API Key[/gold]. You can generate one in the PiShock website, in your Account settings.",
-
+  "PISHOCKTHESPIRE2-A_P_I_KEY.hover.desc": "A PiShock or OpenShock [gold]API Key[/gold]. You can generate one in the PiShock website, in your Account settings.",
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKERS.title": "Shocker IDs",
-
   "PISHOCKTHESPIRE2-SHOCKER_I_D.title": "Shocker ID",
   "PISHOCKTHESPIRE2-SHOCKER_I_D.hover.desc": "The Shocker ID that you want this mod to trigger. You can find it in your Shocker settings. This is NOT a Hub ID.",
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKER_I_D_1.title": "Optional Extra ShockerID",
@@ -20,9 +14,7 @@
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKER_I_D_3.hover.desc": "[gold](Optional)[/gold] Additional Shocker ID to trigger while taking damage. You can find it in your Shocker settings. This is NOT a Hub ID.",
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKER_I_D_4.title": "Optional Extra ShockerID",
   "PISHOCKTHESPIRE2-ADDITIONAL_SHOCKER_I_D_4.hover.desc": "[gold](Optional)[/gold] Additional Shocker ID to trigger while taking damage. You can find it in your Shocker settings. This is NOT a Hub ID.",
-
   "PISHOCKTHESPIRE2-SHOCKER_CONFIG.title": "Shocker(s) Settings",
-  
   "PISHOCKTHESPIRE2-MAX_INTENSITY.title": "Maximum Intensity:",
   "PISHOCKTHESPIRE2-MAX_INTENSITY.hover.desc": "The [gold]intensity[/gold] of the vibrations and shocks will never surpass this range.",
   "PISHOCKTHESPIRE2-MIN_INTENSITY.title": "Minimum Intensity:",
@@ -33,7 +25,6 @@
   "PISHOCKTHESPIRE2-MIN_DURATION.hover.desc": "The [gold]lenght[/gold] of the beeps, vibrations and shocks will never be less than this range.",
   "PISHOCKTHESPIRE2-ALWAYS_MAX_POWER.title": "Always shock at Maximum power",
   "PISHOCKTHESPIRE2-ALWAYS_MAX_POWER.hover.desc": "Shocks will always trigger at your chosen [gold]Maximum Intensity[/gold] and [gold]Maximum Duration[/gold] instead of escalate based on damage taken.",
-
   "PISHOCKTHESPIRE2-GAMEPLAY.title": "Gameplay Settings",
   "PISHOCKTHESPIRE2-FAULTY_INSULATION.title": "Faulty Insulation",
   "PISHOCKTHESPIRE2-FAULTY_INSULATION.hover.desc": "[gold]Insulation[/gold] will not prevent the trigger of shocks after taking damage.",
@@ -45,10 +36,7 @@
   "PISHOCKTHESPIRE2-TRIGGER_SELF_DAMAGE.hover.desc": "During combat, your Shocker will also trigger at the end of your turn if you took damage during it.",
   "PISHOCKTHESPIRE2-ALLOW_PUNISHMENTS.title": "Enable Punishment Cards",
   "PISHOCKTHESPIRE2-ALLOW_PUNISHMENTS.hover.desc": "Allow multiplayer cards used by other players trigger your Shocker.",
-
-  
   "PISHOCKTHESPIRE2-DEBUG.title": "Debug/Sync",
-
   "PISHOCKTHESPIRE2-VIBRATE_ONLY.title": "Vibrate Only",
   "PISHOCKTHESPIRE2-VIBRATE_ONLY.hover.desc": "Replace all the shock calls for vibration calls.",
   "PISHOCKTHESPIRE2-VERBOSE_LOGS.title": "Detailed Logs",

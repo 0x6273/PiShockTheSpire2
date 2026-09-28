@@ -18,17 +18,18 @@ public class Shockloop() : CustomCardModel(0, CardType.Skill,
 {
     public override string CustomPortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigCardImagePath();
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-    public override bool HasEnergyCostX => true;
+    protected override bool HasEnergyCostX => true;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    
+
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-    
-    public override async Task OnPlay(
+
+    protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        int nOfMultiShocks= ResolveEnergyXValue();
-        if (base.IsUpgraded) {
+        int nOfMultiShocks = ResolveEnergyXValue();
+        if (base.IsUpgraded)
+        {
             nOfMultiShocks++;
         }
 
@@ -44,7 +45,4 @@ public class Shockloop() : CustomCardModel(0, CardType.Skill,
             }
         }
     }
-
-    
-    
 }
